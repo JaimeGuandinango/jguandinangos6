@@ -24,7 +24,7 @@
             <Label Text="Edad" FontSize="18" Grid.Row="0" Grid.Column="3"/>
         </Grid>
         <Label Text="" />
-        <ListView x:Name="MyListView">
+        <ListView x:Name="MyListView" ItemSelected="MyListView_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

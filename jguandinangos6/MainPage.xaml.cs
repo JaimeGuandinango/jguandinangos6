@@ -1,6 +1,7 @@
 ﻿using jguandinangos6.WS;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -36,6 +37,16 @@ namespace jguandinangos6
             var mensaje = "Bienvenido";
             DependencyService.Get<Mensaje>().longAlert(mensaje);
             Navigation.PushAsync(new Insertar());
+        }
+
+         void MyListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var datos = (WS.Datos)e.SelectedItem;
+            var codigo = datos.codigo;
+            var nombre = datos.nombre;
+            var apellido = datos.apellido;
+            var edad = datos.edad;
+            Navigation.PushAsync(new VentanaAct(codigo, nombre, apellido, edad));
         }
     }
 }
